@@ -3,8 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ArgumentosVariables.iml" filepath="$PROJECT_DIR$/ArgumentosVariables.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AutoBoxingUnBoxing/AutoBoxingUnBoxing.iml" filepath="$PROJECT_DIR$/AutoBoxingUnBoxing/AutoBoxingUnBoxing.iml" />
       <module fileurl="file://$PROJECT_DIR$/BloquesInicializacion/BloquesInicializacion.iml" filepath="$PROJECT_DIR$/BloquesInicializacion/BloquesInicializacion.iml" />
       <module fileurl="file://$PROJECT_DIR$/Enumeracion/Enumeracion.iml" filepath="$PROJECT_DIR$/Enumeracion/Enumeracion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ForeachJava/ForeachJava.iml" filepath="$PROJECT_DIR$/ForeachJava/ForeachJava.iml" />
     </modules>
   </component>
 </project>
