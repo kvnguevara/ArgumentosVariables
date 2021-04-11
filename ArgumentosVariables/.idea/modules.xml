@@ -5,8 +5,10 @@
       <module fileurl="file://$PROJECT_DIR$/ArgumentosVariables.iml" filepath="$PROJECT_DIR$/ArgumentosVariables.iml" />
       <module fileurl="file://$PROJECT_DIR$/AutoBoxingUnBoxing/AutoBoxingUnBoxing.iml" filepath="$PROJECT_DIR$/AutoBoxingUnBoxing/AutoBoxingUnBoxing.iml" />
       <module fileurl="file://$PROJECT_DIR$/BloquesInicializacion/BloquesInicializacion.iml" filepath="$PROJECT_DIR$/BloquesInicializacion/BloquesInicializacion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ConversionObjetos/ConversionObjetos.iml" filepath="$PROJECT_DIR$/ConversionObjetos/ConversionObjetos.iml" />
       <module fileurl="file://$PROJECT_DIR$/Enumeracion/Enumeracion.iml" filepath="$PROJECT_DIR$/Enumeracion/Enumeracion.iml" />
       <module fileurl="file://$PROJECT_DIR$/ForeachJava/ForeachJava.iml" filepath="$PROJECT_DIR$/ForeachJava/ForeachJava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/InstanceOf/InstanceOf.iml" filepath="$PROJECT_DIR$/InstanceOf/InstanceOf.iml" />
       <module fileurl="file://$PROJECT_DIR$/SobreescrituraMetodos/SobreescrituraMetodos.iml" filepath="$PROJECT_DIR$/SobreescrituraMetodos/SobreescrituraMetodos.iml" />
     </modules>
   </component>
