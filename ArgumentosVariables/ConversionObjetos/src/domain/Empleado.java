@@ -28,4 +28,13 @@ public class Empleado {
     public void setSueldo(double sueldo) {
         this.sueldo = sueldo;
     }
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("Empleado{");
+        sb.append("nombre='").append(nombre).append('\'');
+        sb.append(", sueldo=").append(sueldo);
+        sb.append('}');
+        return sb.toString();
+    }
 }
