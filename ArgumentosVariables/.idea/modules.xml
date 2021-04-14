@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/ApiColecciones/ApiColecciones.iml" filepath="$PROJECT_DIR$/ApiColecciones/ApiColecciones.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ApiColeccionesGenericas/ApiColeccionesGenericas.iml" filepath="$PROJECT_DIR$/ApiColeccionesGenericas/ApiColeccionesGenericas.iml" />
       <module fileurl="file://$PROJECT_DIR$/ArgumentosVariables.iml" filepath="$PROJECT_DIR$/ArgumentosVariables.iml" />
       <module fileurl="file://$PROJECT_DIR$/AutoBoxingUnBoxing/AutoBoxingUnBoxing.iml" filepath="$PROJECT_DIR$/AutoBoxingUnBoxing/AutoBoxingUnBoxing.iml" />
       <module fileurl="file://$PROJECT_DIR$/BloquesInicializacion/BloquesInicializacion.iml" filepath="$PROJECT_DIR$/BloquesInicializacion/BloquesInicializacion.iml" />
       <module fileurl="file://$PROJECT_DIR$/ClaseAbstracta/ClaseAbstracta.iml" filepath="$PROJECT_DIR$/ClaseAbstracta/ClaseAbstracta.iml" />
       <module fileurl="file://$PROJECT_DIR$/ClaseObject/ClaseObject.iml" filepath="$PROJECT_DIR$/ClaseObject/ClaseObject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ClasesGenericas/ClasesGenericas.iml" filepath="$PROJECT_DIR$/ClasesGenericas/ClasesGenericas.iml" />
       <module fileurl="file://$PROJECT_DIR$/ConversionObjetos/ConversionObjetos.iml" filepath="$PROJECT_DIR$/ConversionObjetos/ConversionObjetos.iml" />
       <module fileurl="file://$PROJECT_DIR$/Enumeracion/Enumeracion.iml" filepath="$PROJECT_DIR$/Enumeracion/Enumeracion.iml" />
       <module fileurl="file://$PROJECT_DIR$/ForeachJava/ForeachJava.iml" filepath="$PROJECT_DIR$/ForeachJava/ForeachJava.iml" />
