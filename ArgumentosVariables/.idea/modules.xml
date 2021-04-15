@@ -16,6 +16,7 @@
       <module fileurl="file://$PROJECT_DIR$/InfaceJava/InfaceJava.iml" filepath="$PROJECT_DIR$/InfaceJava/InfaceJava.iml" />
       <module fileurl="file://$PROJECT_DIR$/InstanceOf/InstanceOf.iml" filepath="$PROJECT_DIR$/InstanceOf/InstanceOf.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaBean/JavaBean.iml" filepath="$PROJECT_DIR$/JavaBean/JavaBean.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ManejoArchivo/ManejoArchivo.iml" filepath="$PROJECT_DIR$/ManejoArchivo/ManejoArchivo.iml" />
       <module fileurl="file://$PROJECT_DIR$/ManejoExcepciones1/ManejoExcepciones1.iml" filepath="$PROJECT_DIR$/ManejoExcepciones1/ManejoExcepciones1.iml" />
       <module fileurl="file://$PROJECT_DIR$/SobreescrituraMetodos/SobreescrituraMetodos.iml" filepath="$PROJECT_DIR$/SobreescrituraMetodos/SobreescrituraMetodos.iml" />
     </modules>
