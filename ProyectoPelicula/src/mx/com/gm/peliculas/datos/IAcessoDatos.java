@@ -17,7 +17,7 @@ public interface IAcessoDatos {
 
     public String buscar(String nombreArchivo, String buscar) throws LecturaDatosEx;
 
-    public void crear(String nombreArchivo) throws AccesoDatosEx;
+    public void crear(String nombreArchivo,boolean anexar) throws AccesoDatosEx;
 
     public void borrar(String nombreArchivo) throws AccesoDatosEx;
 

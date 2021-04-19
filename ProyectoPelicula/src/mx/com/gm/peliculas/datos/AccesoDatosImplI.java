@@ -17,7 +17,7 @@ public class AccesoDatosImplI implements IAcessoDatos {
 
     /*Como puede que este metodo nos de un error, estamos implementando las excepciones que
      * hemos creado.
-     * Y como el Buffered tiene que ir en try catch, allÃ­ es donde mandamos el mensaje que se mostraria al usuario
+     * Y como el Buffered tiene que ir en try catch, allí es donde mandamos el mensaje que se mostraria al usuario
      *tanto al leer como
      * */
 
@@ -33,7 +33,6 @@ public class AccesoDatosImplI implements IAcessoDatos {
                 Pelicula pelicula = new Pelicula(linea);
                 peliculas.add(pelicula);
                 linea = br.readLine();
-
             }
             br.close();
         } catch (FileNotFoundException e) {
@@ -51,8 +50,8 @@ public class AccesoDatosImplI implements IAcessoDatos {
     public void escribir(Pelicula pelicula, String nombreArchivo, boolean anexar) throws EscrituraDatosEx {
         File f = new File(nombreArchivo);
         try {
-            PrintWriter pw = new PrintWriter(new FileWriter(f), true);
-            pw.println(pelicula.toString());
+            PrintWriter pw = new PrintWriter(new FileWriter(f,anexar));
+            pw.println(pelicula.getNombre());
             pw.close();
             System.out.println("Se ha escrito :" + pelicula.getNombre());
         } catch (IOException e) {
@@ -61,7 +60,7 @@ public class AccesoDatosImplI implements IAcessoDatos {
         }
 
     }
-    /*En el mÃ©todo de buscar*/
+    /*En el método de buscar*/
 
     @Override
     public String buscar(String nombreArchivo, String buscarPelicula) throws LecturaDatosEx {
@@ -89,14 +88,14 @@ public class AccesoDatosImplI implements IAcessoDatos {
             throw new LecturaDatosEx("Error al buscar la Pelicula: " + e.getMessage());
         }
 
-        return null;
+        return resultado;
     }
 
     @Override
-    public void crear(String nombreArchivo) throws AccesoDatosEx {
+    public void crear(String nombreArchivo,boolean anexar) throws AccesoDatosEx {
         File file = new File(nombreArchivo);
         try {
-            PrintWriter pw = new PrintWriter(new FileWriter(file), true);
+            PrintWriter pw = new PrintWriter(new FileWriter(file), anexar);
             pw.close();
         } catch (IOException e) {
             e.printStackTrace();

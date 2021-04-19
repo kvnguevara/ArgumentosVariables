@@ -13,17 +13,40 @@ public class CatalogoPresentacion {
         int opcion = -1;
         Scanner sc = new Scanner(System.in);
         ICatalogoPeliculas catalogoPeliculas = new CatalogoPeliculaImpl();
+        String nombrePelicula = null;
+
 
         do {
             System.out.println("---------------MENU------------------");
             System.out.println("1. Iniciar el catalogo de Peliculas.");
-            System.out.println("2. Iniciar el catalogo de Peliculas.");
-            System.out.println("3. Iniciar el catalogo de Peliculas.");
-            System.out.println("4. Iniciar el catalogo de Peliculas.");
+            System.out.println("2. Agregar Peliculas.");
+            System.out.println("3.Listar Peliculas.");
+            System.out.println("4. Buscar Peliculas.");
             System.out.println("0. Salir.");
+            opcion = Integer.parseInt(sc.nextLine());
+
+            switch (opcion){
+                case 1: catalogoPeliculas.iniciarCatalogoPelicula(); break;
+                case 2:
+                    System.out.println("Introduzca el nombre de la Pelicula:");
+                    nombrePelicula = sc.nextLine();
+                    catalogoPeliculas.agregarPelicula(nombrePelicula);
+                    break;
+                case 3: catalogoPeliculas.listarPeliculas();  break;
+                case 4:
+                    System.out.println("Introduzca una Pelicula a Buscar: ");
+                    nombrePelicula = sc.nextLine();
+                    catalogoPeliculas.buscarPeliculas(nombrePelicula);
+                    break;
+                case 0:
+                    System.out.println("Un placer...."); break;
+                default:
+                    System.out.println("Opcion incorrecta!!");
+
+            }
+
+        }while(opcion != 0);
 
 
-
-        }while(opcion == 0);
     }
 }
