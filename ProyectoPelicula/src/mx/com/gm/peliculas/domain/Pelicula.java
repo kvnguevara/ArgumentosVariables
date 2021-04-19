@@ -25,8 +25,9 @@ public class Pelicula implements Serializable {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer();
-        sb.append(nombre);
+        final StringBuffer sb = new StringBuffer("Pelicula{");
+        sb.append("nombre='").append(nombre).append('\'');
+        sb.append('}');
         return sb.toString();
     }
 }

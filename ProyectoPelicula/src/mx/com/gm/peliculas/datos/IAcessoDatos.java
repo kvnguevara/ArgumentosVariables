@@ -7,7 +7,7 @@ import mx.com.gm.peliculas.excepciones.LecturaDatosEx;
 
 import java.util.List;
 
-public interface AcessoDatos {
+public interface IAcessoDatos {
 
     public boolean existe(String nombreArchivo) throws AccesoDatosEx;
 
