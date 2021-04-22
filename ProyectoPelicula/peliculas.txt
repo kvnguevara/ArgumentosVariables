@@ -1,0 +1,4 @@
+Pelicula{nombre='Loca academia'}
+Pelicula{nombre='El caballero oscuro'}
+Pelicula{nombre='Batman'}
+Luz
