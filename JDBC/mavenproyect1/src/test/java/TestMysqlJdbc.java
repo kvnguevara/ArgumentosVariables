@@ -24,6 +24,10 @@ public class TestMysqlJdbc {
                         +" - Apellidos:"+set.getString("apellido")+" - mail:"+set.getString("mail")+" - Telefono: " +
                         ""+set.getString("telefono"));
             }
+            //Tenemos que cerrar los objetos
+            set.close(); //resulset
+            st.close(); //Stamente
+            con.close(); //conexion
 
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
