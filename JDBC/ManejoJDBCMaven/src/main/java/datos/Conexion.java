@@ -26,7 +26,7 @@ public class Conexion {
 
     }
     /*Sobre carga del metodo ahora se le pasa un elemento
-    * Connection y así poder  cerrar la coneccion
+    * Connection y así poder  cerrar la conexion
     * */
 
     public static void close(Connection con) throws SQLException {
