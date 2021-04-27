@@ -9,8 +9,11 @@ import domain.Persona;
 import java.sql.*;
 import java.util.*;
 
+import static datos.Conexion.*;
+
 public class PersonaDAO {
     private static final String SQL_SELECT = "SELECT id_persona,nombre,apellido,mail,telefono FROM persona";
+    private static final String SQL_INSERT = "INSERT INTO persona(nombre,apellido,mail,telefono) VALUES(?, ?, ?, ?)";
     public List<Persona> selecionar(){
         Connection con = null;
         PreparedStatement prst = null;
@@ -19,7 +22,7 @@ public class PersonaDAO {
         List<Persona> listpersonas = new ArrayList<>();
         try {
             //Hacemos un llamado a la conexion, que tenemos en nuestra clase
-            con = Conexion.getConnection();
+            con = getConnection();
             //Preparamos la sentencia, con preparateStament
             prst = con.prepareStatement(SQL_SELECT);
             //Ejecutamos la sentencia SQL
@@ -40,9 +43,9 @@ public class PersonaDAO {
         * Se cierra en el orden inverson de la creacion.*/
         finally{
             try {
-                Conexion.close(rst);
-                Conexion.close(prst);
-                Conexion.close(con);
+                close(rst);
+                close(prst);
+                close(con);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
@@ -50,5 +53,40 @@ public class PersonaDAO {
         }
 
         return listpersonas;
+    }
+    public int insertar(Persona p){
+        //Inicializo las variables
+        Connection con = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        int registro = 0;
+        try {
+            con = getConnection();
+            pst = con.prepareStatement(SQL_INSERT);
+            pst.setString(1,p.getNombre());
+            pst.setString(2,p.getApellido());
+            pst.setString(3,p.getMail());
+            pst.setString(4,p.getTelefono());
+            //executeUpdate nos sirve para eliminar, actualizar e insertar en la BD
+            registro = pst.executeUpdate();
+        } catch (SQLException throwables) {
+            //throwables.printStackTrace(System.out);
+            System.out.println(throwables.getMessage());
+        }
+        finally{
+            try {
+                //cerramos el preparateStament, conexion
+                close(pst);
+                close(con);
+            } catch (SQLException throwables) {
+                //throwables.printStackTrace(System.out);
+                System.out.println(throwables.getMessage());
+            }
+
+        }
+        //retornamos el registro, para saber si se ha insertado bien
+        return registro;
+
+
     }
 }
