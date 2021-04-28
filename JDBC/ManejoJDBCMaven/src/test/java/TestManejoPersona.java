@@ -9,7 +9,7 @@ public class TestManejoPersona {
     public static void main(String[] args) {
         //Vamos a comprabar si inserta bien
         PersonaDAO personaDAO = new PersonaDAO();
-        Persona p_nueva = new Persona("Zlatan","Ibramovic","ibra@gmail.com","625287753");
+        Persona p_nueva = new Persona("Jose Carlos","Ibramovic","ibra@gmail.com","625287753");
         if (personaDAO.insertar(p_nueva)>0){
             System.out.println("Se ha insertado un nuevo registro");
         }else System.out.println("Se ha produccido un Error a la hora de insertar");
@@ -19,6 +19,17 @@ public class TestManejoPersona {
         listPersonas.forEach(persona -> {
             System.out.println(persona.toString());
         });
+        p_nueva = new Persona(1,"Kevin Armando","Guevara","kvnguevaracarrasco@gmail.com",
+                "625287943");
+        //int id_persona = 1;
+        System.out.println("--------------------------------------");
+        personaDAO.actualizar(p_nueva);
+        listPersonas=personaDAO.selecionar();
+        listPersonas.forEach(System.out::println);
+        System.out.println("--------------------------------------");
+        personaDAO.eliminar(6);
+        listPersonas  = personaDAO.selecionar();
+        listPersonas.forEach(System.out::println);
 
     }
 }
