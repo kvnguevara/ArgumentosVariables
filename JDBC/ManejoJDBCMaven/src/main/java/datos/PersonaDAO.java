@@ -155,7 +155,8 @@ public class PersonaDAO {
         return registro;
     }
     public void mostrarLista() {
-
+        List<Persona> listpersonas = selecionar();
+        listpersonas.forEach(System.out::println);
     }
 
 }
