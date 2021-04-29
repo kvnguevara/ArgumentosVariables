@@ -5,11 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6aa07b1a-e53a-4b9c-a758-21eb10cc74de" name="Default Changelist" comment="Estamos trabajando ya con las clase CatalogoPeliculaImpl ya que está es la que gestiona el programa">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx/com/gm/peliculas/datos/AccesoDatosImplI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/com/gm/peliculas/datos/AccesoDatosImplI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx/com/gm/peliculas/datos/IAcessoDatos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/com/gm/peliculas/datos/IAcessoDatos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx/com/gm/peliculas/presentacion/CatalogoPresentacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/com/gm/peliculas/presentacion/CatalogoPresentacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx/com/gm/peliculas/servicios/CatalogoPeliculaImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/com/gm/peliculas/servicios/CatalogoPeliculaImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC/ManejoJDBCUsuario/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC/ManejoJDBCUsuario/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC/ManejoJDBCUsuario/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC/ManejoJDBCUsuario/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC/ManejoJDBCUsuario/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC/ManejoJDBCUsuario/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC/ManejoJDBCUsuario/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC/ManejoJDBCUsuario/ManejoJDBCUsuario.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC/ManejoJDBCUsuario/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC/ManejoJDBCUsuario/src/main/java/com/kevinguevara/conexion/Conexion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC/ManejoJDBCUsuario/src/main/java/com/kevinguevara/datos/IUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC/ManejoJDBCUsuario/src/main/java/com/kevinguevara/datos/Iconsultas.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC/ManejoJDBCUsuario/src/main/java/com/kevinguevara/datos/UserPAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC/ManejoJDBCUsuario/src/main/java/com/kevinguevara/servicios/GestionUsario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC/ManejoJDBCUsuario/src/main/java/com/kevinguevara/usarios/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
