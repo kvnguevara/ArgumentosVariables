@@ -101,21 +101,63 @@ public class UserPAO implements IUser, Iconsultas{
             rst = prst.executeQuery();
             //Recorro los registro y añado a la lista
             while (rst.next()){
-                user = new Usuario(rst.getInt("id_usuario"),rst.getString("user"),rst.getString("password"));
+                user = new Usuario(rst.getInt("id_usuario"),rst.getString("user")
+                        ,rst.getString("password"));
+                usuarioList.add(user);
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return null;
+        //Bloque que cierra las conexiones
+        finally {
+            try {
+                close(rst);
+                close(prst);
+                close(con);
+
+            } catch (SQLException throwables) {
+//                throwables.printStackTrace();
+                System.err.format("Estado-->%s\n%s"+throwables.getSQLState(),throwables.getMessage());
+            }
+
+        }
+        return usuarioList;
     }
 
     @Override
     public int actualizar(Usuario user) {
-        return 0;
+        //Inicializo las variables
+        registro = 0;
+        try {
+            con = getConnection();
+            prst = con.prepareStatement(SQL_UPDATE);
+            prst.setString(1,user.getUser());
+            prst.setString(2,user.getPassword());
+            prst.setInt(3,user.getIdUsuario());
+            registro = prst.executeUpdate();;
+        } catch (SQLException throwables) {
+//            throwables.printStackTrace();
+            System.err.format("Estado: %s\n%s"+throwables.getSQLState(),throwables.getMessage());
+        }
+        //bloque para cerrar conexion
+        finally {
+            try {
+                close(prst);
+                close(con);
+            } catch (SQLException throwables) {
+//                throwables.printStackTrace();
+                System.err.format("Estado: %s\n%s"+throwables.getSQLState(),throwables.getMessage());
+            }
+        }
+        return registro;
     }
 
-    @Override
+    /*@Override
     public void mostrar() {
+        List<Usuario> userList = new ArrayList<>();
+        userList = selecionar();
+        //Muestro por pantalla la lista que me devuelve el metodo seleccionar.
+        userList.forEach(System.out::println);
 
-    }
+    }*/
 }

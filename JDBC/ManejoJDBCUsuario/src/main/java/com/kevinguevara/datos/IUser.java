@@ -9,5 +9,5 @@ public interface IUser {
     public int delete(Usuario user);
     public List<Usuario> selecionar();
     public int actualizar(Usuario user);
-    public void mostrar();
+//    public void mostrar();
 }
