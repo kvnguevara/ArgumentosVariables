@@ -23,32 +23,36 @@ public class PresentacionUsuario {
             System.out.println("4. Mostrar Usarios");
             System.out.println("0. Salir");
             System.out.println("Intrdozca una Opcion:");
-            opcion = sc.nextInt();
+            opcion = Integer.parseInt(sc.nextLine());
 
             switch (opcion){
                 case 1:
-                    System.out.println("Introduzca el Nombre de Usario:");
+                    System.out.print("Introduzca el Nombre de Usario:");
                     userName = sc.nextLine();
-                    System.out.println("Introduzca el Password(Contrasena)");
+                    System.out.println();
+                    System.out.print("Introduzca el Password(Contrasena)");
                     passd = sc.nextLine();
                     user = new Usuario(userName,passd);
                     gestionUsuario.insertaUsario(user);
                     break;
                 case 2:
+                    System.out.println("Introduzca el IdUsuario:");
+                    idUsuario= Integer.parseInt(sc.nextLine());
                     System.out.println("Introduzca el Nombre de Usario:");
                     userName = sc.nextLine();
                     System.out.println("Introduzca el Password(Contrasena)");
                     passd = sc.nextLine();
-                    user = new Usuario(userName,passd);
+                    user = new Usuario(idUsuario,userName,passd);
                     gestionUsuario.udpateUsario(user);
                     break;
                 case 3:
+                    System.out.println("Introduzca el IdUsuario:");
+                    idUsuario= Integer.parseInt(sc.nextLine());
                     System.out.println("Introduzca el Nombre de Usario:");
                     userName = sc.nextLine();
                     System.out.println("Introduzca el Password(Contrasena)");
                     passd = sc.nextLine();
-                    System.out.println("Introduzca el IdUsuario:");
-                    idUsuario= sc.nextInt();
+
                     user = new Usuario(idUsuario,userName,passd);
                     gestionUsuario.eliminarUsario(user);
                     break;
@@ -58,10 +62,11 @@ public class PresentacionUsuario {
                 default: System.out.println("Saliendo...");
 
             }
-            //Pongo a null las variables
+            /*//Pongo a null las variables
             userName = null;
             passd = null;
-            idUsuario=0;
+            idUsuario=0;*/
+
 
         }while(opcion!=0);
 

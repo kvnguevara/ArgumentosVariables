@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6aa07b1a-e53a-4b9c-a758-21eb10cc74de" name="Default Changelist" comment="Estamos trabajando ya con las clase CatalogoPeliculaImpl ya que está es la que gestiona el programa">
-      <change afterPath="$PROJECT_DIR$/../JDBC/ManejoJDBCUsuario/src/main/java/com/kevinguevara/servicios/IAGestionUsuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JDBC/ManejoJDBCUsuario/src/main/java/com/kevinguevara/datos/IUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../JDBC/ManejoJDBCUsuario/src/main/java/com/kevinguevara/datos/IUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JDBC/ManejoJDBCUsuario/src/main/java/com/kevinguevara/datos/UserPAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../JDBC/ManejoJDBCUsuario/src/main/java/com/kevinguevara/datos/UserPAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC/ManejoJDBCUsuario/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JDBC/ManejoJDBCUsuario/src/main/java/com/kevinguevara/presentacion/PresentacionUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/../JDBC/ManejoJDBCUsuario/src/main/java/com/kevinguevara/presentacion/PresentacionUsuario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../JDBC/ManejoJDBCUsuario/src/main/java/com/kevinguevara/servicios/GestionUsario.java" beforeDir="false" afterPath="$PROJECT_DIR$/../JDBC/ManejoJDBCUsuario/src/main/java/com/kevinguevara/servicios/GestionUsario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>

@@ -1,4 +1,4 @@
-﻿package com.kevinguevara.servicios;
+package com.kevinguevara.servicios;
 
 import com.kevinguevara.datos.IUser;
 import com.kevinguevara.datos.UserPAO;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*Clase donde hacemos uso de la interfeaace IUser, e implementamos las operaciones que queremos
-* que se muestre en la gestión del programa al usario*/
+* que se muestre en la gesti�n del programa al usario*/
 public class GestionUsario implements IAGestionUsuario{
     private int registro;
     private final IUser datosUsario;
