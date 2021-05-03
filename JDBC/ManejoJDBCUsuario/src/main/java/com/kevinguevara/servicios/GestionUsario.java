@@ -1,11 +1,10 @@
 package com.kevinguevara.servicios;
 
-import com.kevinguevara.datos.IUser;
-import com.kevinguevara.datos.UserPAO;
+import com.kevinguevara.datos.*;
 import com.kevinguevara.usarios.Usuario;
+import java.sql.*;
+import java.util.*;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /*Clase donde hacemos uso de la interfeaace IUser, e implementamos las operaciones que queremos
 * que se muestre en la gestión del programa al usario*/
@@ -13,11 +12,12 @@ public class GestionUsario implements IAGestionUsuario{
     private int registro;
     private final IUser datosUsario;
 
-    public GestionUsario(){
-        this.datosUsario = new UserPAO();
+    public GestionUsario(Connection con){
+
+        this.datosUsario = new UserPAO(con);
     }
     @Override
-    public void insertaUsario(Usuario user) {
+    public void insertaUsario(Usuario user) throws SQLException {
 
         registro= datosUsario.inserta(user);
         if (registro>0)
@@ -27,7 +27,7 @@ public class GestionUsario implements IAGestionUsuario{
     }
 
     @Override
-    public void eliminarUsario(Usuario user) {
+    public void eliminarUsario(Usuario user) throws SQLException {
         registro = datosUsario.delete(user);
         if (registro>0)
             System.out.println("Se ha eliminado un Registro ");
@@ -35,7 +35,7 @@ public class GestionUsario implements IAGestionUsuario{
     }
 
     @Override
-    public void udpateUsario(Usuario user) {
+    public void udpateUsario(Usuario user) throws SQLException {
         registro= datosUsario.actualizar(user);
         if (registro>0)
             System.out.println("Se ha Actualizado un Registro");
@@ -43,7 +43,7 @@ public class GestionUsario implements IAGestionUsuario{
     }
 
     @Override
-    public void mostraUsarios() {
+    public void mostraUsarios() throws SQLException {
         List<Usuario> userList = new ArrayList<>();
 
         userList = datosUsario.selecionar();
