@@ -12,12 +12,21 @@ import java.util.*;
 import static datos.Conexion.*;
 
 public class PersonaDAO {
+    private Connection conecionTransacional;
     private static final String SQL_SELECT = "SELECT id_persona,nombre,apellido,mail,telefono FROM persona";
     private static final String SQL_INSERT = "INSERT INTO persona(nombre,apellido,mail,telefono) VALUES(?, ?, ?, ?)";
     private static final String SQL_DELETE = "DELETE FROM persona WHERE id_persona = ? ";
     private static final String SQL_UPDATE = "UPDATE persona SET nombre = ?,apellido = ? ,mail = ? ,telefono = ? WHERE id_persona = ?";
 
-    public List<Persona> selecionar() {
+    public PersonaDAO() {
+
+    }
+
+    public PersonaDAO(Connection conecionTransacional) {
+        this.conecionTransacional = conecionTransacional;
+    }
+
+    public List<Persona> selecionar() throws SQLException {
         Connection con = null;
         PreparedStatement prst = null;
         ResultSet rst = null;
@@ -25,7 +34,7 @@ public class PersonaDAO {
         List<Persona> listpersonas = new ArrayList<>();
         try {
             //Hacemos un llamado a la conexion, que tenemos en nuestra clase
-            con = getConnection();
+            con = this.conecionTransacional != null ? this.conecionTransacional : getConnection();
             //Preparamos la sentencia, con preparateStament
             prst = con.prepareStatement(SQL_SELECT);
             //Ejecutamos la sentencia SQL
@@ -37,19 +46,15 @@ public class PersonaDAO {
                 listpersonas.add(persona);
 
             }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-            System.out.println(throwables.getMessage());
         }
         /*Creamos el bloque de finally, para cerrar los objetos utilizados en la
          * conexion a la BD.
          * Se cierra en el orden inverson de la creacion.*/ finally {
-            try {
-                close(rst);
-                close(prst);
+
+            close(rst);
+            close(prst);
+            if (this.conecionTransacional == null) {
                 close(con);
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
             }
 
         }
@@ -57,14 +62,14 @@ public class PersonaDAO {
         return listpersonas;
     }
 
-    public int insertar(Persona p) {
+    public int insertar(Persona p) throws SQLException {
         //Inicializo las variables
         Connection con = null;
         PreparedStatement pst = null;
         ResultSet rs = null;
         int registro = 0;
         try {
-            con = getConnection();
+            con = this.conecionTransacional != null ? this.conecionTransacional : getConnection();
             pst = con.prepareStatement(SQL_INSERT);
             pst.setString(1, p.getNombre());
             pst.setString(2, p.getApellido());
@@ -72,18 +77,10 @@ public class PersonaDAO {
             pst.setString(4, p.getTelefono());
             //executeUpdate nos sirve para eliminar, actualizar e insertar en la BD
             registro = pst.executeUpdate();
-        } catch (SQLException throwables) {
-            //throwables.printStackTrace(System.out);
-            //System.out.println(throwables.getMessage());
-            System.err.format("SQL State: %s\n%s", throwables.getSQLState(), throwables.getMessage());
         } finally {
-            try {
-                //cerramos el preparateStament, conexion
-                close(pst);
+            close(pst);
+            if (this.conecionTransacional == null) {
                 close(con);
-            } catch (SQLException throwables) {
-                //throwables.printStackTrace(System.out);
-                System.out.println(throwables.getMessage());
             }
 
         }
@@ -91,14 +88,14 @@ public class PersonaDAO {
         return registro;
     }
 
-    public int eliminar(int idPersona) {
+    public int eliminar(int idPersona) throws SQLException {
         int registro = 0;
         //Declaracion de variables que vamos a utilizar
         Connection con = null;
         PreparedStatement prst = null;
         //Establecemos la conecion
         try {
-            con = getConnection();
+            con = this.conecionTransacional != null ? this.conecionTransacional : getConnection();
             if (idPersona < 1) {
                 registro = 0;
             } else {
@@ -109,16 +106,12 @@ public class PersonaDAO {
                 //ejecuto la sentencia SQL, con los datos(id_persona)
                 registro = prst.executeUpdate();
             }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
         }
         //cierro el preparateStament y la conexion
         finally {
-            try {
-                close(prst);
+            close(prst);
+            if (this.conecionTransacional == null) {
                 close(con);
-            } catch (SQLException throwables) {
-                System.err.format("%s \n %s", throwables.getSQLState(), throwables.getMessage());
             }
         }
         return registro;
@@ -126,12 +119,12 @@ public class PersonaDAO {
     }
 
     //Metodo para modificar datos en un BD
-    public int actualizar(Persona p) {
+    public int actualizar(Persona p) throws SQLException {
         int registro = 0;
         Connection con = null;
         PreparedStatement prst = null;
         try {
-            con = getConnection();
+            con = this.conecionTransacional != null ? this.conecionTransacional : getConnection();
             prst = con.prepareStatement(SQL_UPDATE);
             prst.setString(1, p.getNombre());
             prst.setString(2, p.getApellido());
@@ -141,20 +134,16 @@ public class PersonaDAO {
             //Ejecuto la sentencia SQl
             registro = prst.executeUpdate();
 
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
         } finally {
-            try {
-                close(prst);
+            close(prst);
+            if (this.conecionTransacional == null)
                 close(con);
-            } catch (SQLException throwables) {
-                System.err.format("SQL-STATE:%s\n %s", throwables.getSQLState(), throwables.getMessage());
-            }
         }
 
         return registro;
     }
-    public void mostrarLista() {
+
+    public void mostrarLista() throws SQLException {
         List<Persona> listpersonas = selecionar();
         listpersonas.forEach(System.out::println);
     }
