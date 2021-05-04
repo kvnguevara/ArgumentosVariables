@@ -1,6 +1,6 @@
 package domain;
 
-public class Persona {
+public class PersonaDTO {
     /*nombre, apellido, mail y telefono*/
     private int idPersona;
     private String nombre;
@@ -10,21 +10,21 @@ public class Persona {
 
     //Constructores de la clase
 
-    public Persona() {
+    public PersonaDTO() {
     }
 
-    public Persona(int idPersona) {
+    public PersonaDTO(int idPersona) {
         this.idPersona = idPersona;
     }
 
-    public Persona(String nombre, String apellido, String mail, String telefono) {
+    public PersonaDTO(String nombre, String apellido, String mail, String telefono) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.mail = mail;
         this.telefono = telefono;
     }
 
-    public Persona(int idPersona, String nombre, String apellido, String mail, String telefono) {
+    public PersonaDTO(int idPersona, String nombre, String apellido, String mail, String telefono) {
         this.idPersona = idPersona;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -77,7 +77,7 @@ public class Persona {
     //Metodo toString
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("Persona{");
+        final StringBuffer sb = new StringBuffer("PersonaDTO{");
         sb.append("idPersona=").append(idPersona);
         sb.append(", nombre='").append(nombre).append('\'');
         sb.append(", apellido='").append(apellido).append('\'');

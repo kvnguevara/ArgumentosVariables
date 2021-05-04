@@ -1,37 +1,36 @@
-package datos;
+package com.kevinguevara.datos;
 /*
  * Está clase es la que se encargara para realizar las operaciones
- * de Inserta, Actualizar, buscar y modificar, en la Tabla Persona en
+ * de Inserta, Actualizar, buscar y modificar, en la Tabla PersonaDTO en
  * nuestra base de datos.*/
 
-import domain.Persona;
+import com.kevinguevara.domain.PersonaDTO;
 
 import java.sql.*;
 import java.util.*;
 
-import static datos.Conexion.*;
+import static com.kevinguevara.conexion.Conexion.*;
 
-public class PersonaDAO {
+
+public class PersonaDaoJDBC implements PersonDao, Iconsultas {
+
     private Connection conecionTransacional;
-    private static final String SQL_SELECT = "SELECT id_persona,nombre,apellido,mail,telefono FROM persona";
-    private static final String SQL_INSERT = "INSERT INTO persona(nombre,apellido,mail,telefono) VALUES(?, ?, ?, ?)";
-    private static final String SQL_DELETE = "DELETE FROM persona WHERE id_persona = ? ";
-    private static final String SQL_UPDATE = "UPDATE persona SET nombre = ?,apellido = ? ,mail = ? ,telefono = ? WHERE id_persona = ?";
 
-    public PersonaDAO() {
+    public PersonaDaoJDBC() {
 
     }
 
-    public PersonaDAO(Connection conecionTransacional) {
+    public PersonaDaoJDBC(Connection conecionTransacional) {
+
         this.conecionTransacional = conecionTransacional;
     }
 
-    public List<Persona> selecionar() throws SQLException {
+    public List<PersonaDTO> select() throws SQLException {
         Connection con = null;
         PreparedStatement prst = null;
         ResultSet rst = null;
-        Persona persona = null;
-        List<Persona> listpersonas = new ArrayList<>();
+        PersonaDTO persona = null;
+        List<PersonaDTO> listpersonas = new ArrayList<>();
         try {
             //Hacemos un llamado a la conexion, que tenemos en nuestra clase
             con = this.conecionTransacional != null ? this.conecionTransacional : getConnection();
@@ -41,7 +40,7 @@ public class PersonaDAO {
             rst = prst.executeQuery();
             //Vamos recuperando cada columna y fila del resultado
             while (rst.next()) {
-                persona = new Persona(rst.getInt("id_persona"), rst.getString("nombre"), rst.getString("apellido")
+                persona = new PersonaDTO(rst.getInt("id_persona"), rst.getString("nombre"), rst.getString("apellido")
                         , rst.getString("mail"), rst.getString("telefono"));
                 listpersonas.add(persona);
 
@@ -49,7 +48,9 @@ public class PersonaDAO {
         }
         /*Creamos el bloque de finally, para cerrar los objetos utilizados en la
          * conexion a la BD.
-         * Se cierra en el orden inverson de la creacion.*/ finally {
+         * Se cierra en el orden inverson de la creacion.*/
+
+        finally {
 
             close(rst);
             close(prst);
@@ -62,7 +63,7 @@ public class PersonaDAO {
         return listpersonas;
     }
 
-    public int insertar(Persona p) throws SQLException {
+    public int insert(PersonaDTO p) throws SQLException {
         //Inicializo las variables
         Connection con = null;
         PreparedStatement pst = null;
@@ -88,7 +89,7 @@ public class PersonaDAO {
         return registro;
     }
 
-    public int eliminar(int idPersona) throws SQLException {
+    public int delete(PersonaDTO p) throws SQLException {
         int registro = 0;
         //Declaracion de variables que vamos a utilizar
         Connection con = null;
@@ -96,16 +97,13 @@ public class PersonaDAO {
         //Establecemos la conecion
         try {
             con = this.conecionTransacional != null ? this.conecionTransacional : getConnection();
-            if (idPersona < 1) {
-                registro = 0;
-            } else {
-                //preparo la consulta
-                prst = con.prepareStatement(SQL_DELETE);
-                //Agrero los datos a borrar(id_persona), en la BD
-                prst.setInt(1, idPersona);
-                //ejecuto la sentencia SQL, con los datos(id_persona)
-                registro = prst.executeUpdate();
-            }
+
+            //preparo la consulta
+            prst = con.prepareStatement(SQL_DELETE);
+            //Agrero los datos a borrar(id_persona), en la BD
+            prst.setInt(1, p.getIdPersona());
+            //ejecuto la sentencia SQL, con los datos(id_persona)
+            registro = prst.executeUpdate();
         }
         //cierro el preparateStament y la conexion
         finally {
@@ -119,7 +117,7 @@ public class PersonaDAO {
     }
 
     //Metodo para modificar datos en un BD
-    public int actualizar(Persona p) throws SQLException {
+    public int update(PersonaDTO p) throws SQLException {
         int registro = 0;
         Connection con = null;
         PreparedStatement prst = null;
@@ -144,7 +142,7 @@ public class PersonaDAO {
     }
 
     public void mostrarLista() throws SQLException {
-        List<Persona> listpersonas = selecionar();
+        List<PersonaDTO> listpersonas = select();
         listpersonas.forEach(System.out::println);
     }
 
