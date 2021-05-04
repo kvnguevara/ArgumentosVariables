@@ -12,7 +12,7 @@ import java.util.*;
 import static com.kevinguevara.conexion.Conexion.*;
 
 
-public class PersonaDaoJDBC implements PersonDao, Iconsultas {
+public class PersonaDaoJDBC implements PersonaDao, Iconsultas {
 
     private Connection conecionTransacional;
 

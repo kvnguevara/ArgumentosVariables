@@ -5,7 +5,7 @@ import com.kevinguevara.domain.PersonaDTO;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface PersonDao {
+public interface PersonaDao {
     public int insert(PersonaDTO persona) throws SQLException;
 
     public int update(PersonaDTO persona) throws SQLException;
