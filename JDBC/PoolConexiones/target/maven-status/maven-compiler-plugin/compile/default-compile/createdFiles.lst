@@ -1,0 +1,8 @@
+com\kevinguevara\datos\Iconsultas.class
+com\kevinguevara\datos\PersonaDao.class
+com\kevinguevara\domain\PersonaDTO.class
+com\kevinguevara\datos\UsuarioDaoJDBC.class
+com\kevinguevara\domain\UsuarioDTO.class
+com\kevinguevara\conexion\Conexion.class
+com\kevinguevara\datos\UsuarioDao.class
+com\kevinguevara\datos\PersonaDaoJDBC.class
